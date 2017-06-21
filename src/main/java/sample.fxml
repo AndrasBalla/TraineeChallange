@@ -1,0 +1,63 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.TableView?>
+<GridPane fx:controller="main.java.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <padding><Insets top="50" right="50" bottom="50" left="50"/></padding>
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="vBox">
+        <TableView fx:id="tableView"/>
+    </VBox>
+    <HBox spacing="10" alignment="bottom_right" maxHeight="-Infinity" maxWidth="-Infinity"
+          GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <GridPane hgap="10.0" vgap="10.0">
+            <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+                <RowConstraints vgrow="ALWAYS" />
+            </rowConstraints>
+            <children>
+                <TextField fx:id="inputName" promptText="Name" GridPane.vgrow="ALWAYS" GridPane.columnIndex="1"/>
+                <ChoiceBox fx:id="inputType" GridPane.vgrow="ALWAYS" GridPane.columnIndex="2" value="Framework">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Framework"/>
+                            <String fx:value="Utility"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <TextField fx:id="inputLanguage" promptText="Language" GridPane.vgrow="ALWAYS" GridPane.columnIndex="3"/>
+                <ChoiceBox fx:id="inputIntrusive" GridPane.vgrow="ALWAYS" GridPane.columnIndex="4" value="No">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Yes"/>
+                            <String fx:value="No"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <ChoiceBox fx:id="inputOpenSource" GridPane.vgrow="ALWAYS" GridPane.columnIndex="5" value="No">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Yes"/>
+                            <String fx:value="No"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+            </children>
+        </GridPane>
+    </HBox>
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="1" GridPane.rowIndex="3" >
+        <Button text="Add" onAction="#add"/>
+        <Button text="Remove" onAction="#delete"/>
+        <Button text="Update" onAction="#update"/>
+    </HBox>
+    <Label fx:id="message" GridPane.columnIndex="1" GridPane.rowIndex="4" textAlignment="CENTER" textFill="red"/>
+</GridPane>
